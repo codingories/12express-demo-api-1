@@ -8,8 +8,8 @@ app.set('views', 'ories')
 app.set('view engine', 'ejs')
 
 app.get('/users/:id',(request, response, next)=>{
-  console.log('request.query')
-  console.log(request.query)
+  console.log('request.xhr')
+  console.log(request.xhr)
   response.send('hi')
   next()
 })
