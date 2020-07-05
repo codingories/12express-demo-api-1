@@ -9,6 +9,7 @@ app.set('view engine', 'ejs')
 
 app.get('/test',(request, response, next)=>{
   response.set('X-Frank','yes')
+  response.status('401')
   response.send('hi')
   next()
 })
