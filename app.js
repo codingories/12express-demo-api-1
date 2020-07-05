@@ -9,13 +9,14 @@ app.set('view engine', 'ejs')
 
 app.get('/test',(req, res, next)=>{
   console.log('fuck')
-  res.status(301)
-  res.location('/frank')
+  // res.status(301)
+  // res.location('/frank')
+  res.redirect('/frank')
   res.end()
 })
 
 app.get('/frank',(req, res, next)=>{
-  res.send('frank')
+  res.send('fran1k')
   res.end()
 })
 
