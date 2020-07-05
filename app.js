@@ -7,9 +7,8 @@ const fn1 = require('./fn1')
 app.set('views', 'ories')
 app.set('view engine', 'ejs')
 
-app.get('/users/:name',(request, response, next)=>{
-  console.log(`request.param('name')`)
-  console.log(request.param('name'))
+app.get('/test',(request, response, next)=>{
+  response.set('X-Frank','yes')
   response.send('hi')
   next()
 })
