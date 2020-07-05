@@ -1,24 +1,13 @@
 const express = require('express')
 const app = express()
 const fn1 = require('./fn1')
-
+const user = require('./routes/user')
 
 
 app.set('views', 'ories')
 app.set('view engine', 'ejs')
 
-app.get('/test',(req, res, next)=>{
-  console.log('fuck')
-  // res.status(301)
-  // res.location('/frank')
-  res.redirect('/frank')
-  res.end()
-})
-
-app.get('/frank',(req, res, next)=>{
-  res.send('fran1k')
-  res.end()
-})
+app.use('/users', user)
 
 
 app.listen(3000,()=>{
