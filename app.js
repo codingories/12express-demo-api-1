@@ -7,12 +7,25 @@ const fn1 = require('./fn1')
 app.set('views', 'ories')
 app.set('view engine', 'ejs')
 
-app.get('/test',(request, response, next)=>{
-  response.set('X-Frank','yes')
-  response.status('401')
-  response.append('X-Frank','yes2')
-  response.send('hi')
-  next()
+app.get('/test',(request, res, next)=>{
+  res.format({
+    'text/plain': function () {
+      res.send('hey')
+    },
+
+    'text/html': function () {
+      res.send('<p>hey11</p>')
+    },
+
+    'application/json': function () {
+      res.send({ message: 'hey' })
+    },
+
+    default: function () {
+      // log the request and respond with 406
+      res.status(406).send('Not Acceptable')
+    }
+  })
 })
 
 
